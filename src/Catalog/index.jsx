@@ -82,7 +82,7 @@ function Catalog(props) {
   return (
     <>
       <div className={styles.topSection}>
-        <div ref={containerRef} className={theme.spaceBetween}>
+        <div ref={containerRef} className={styles.topBar}>
           <h1>Catalog</h1>
           <div className={theme.field}>
             <label>Filter</label>
