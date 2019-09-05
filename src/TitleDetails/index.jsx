@@ -33,13 +33,7 @@ function TitleDetails({ match, ...props }) {
         }}
       />
       <div className={theme.container} style={{ marginTop: -100 }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            marginBottom: "2rem"
-          }}
-        >
+        <div className={styles.headStructure}>
           <div className={styles.posterWrapper}>
             <img src={posterImage ? posterImage.url : undefined} />
           </div>
@@ -55,18 +49,18 @@ function TitleDetails({ match, ...props }) {
         </div>
         <p className={styles.description}>{state.description}</p>
         <h2>Casts</h2>
-        <p>{aaa(casts)}</p>
+        <p>{joinNames(casts)}</p>
         <h2>Directors</h2>
-        <p>{aaa(directors)}</p>
+        <p>{joinNames(directors)}</p>
       </div>
     </>
   );
 }
 
-function aaa(casts) {
-  return casts.reduce(
+function joinNames(objArray) {
+  return objArray.reduce(
     (acc, cur, idx) =>
-      `${acc}${cur.name}${idx === casts.length - 1 ? "" : ", "}`,
+      `${acc}${cur.name}${idx === objArray.length - 1 ? "" : ", "}`,
     ""
   );
 }

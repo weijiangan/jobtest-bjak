@@ -1,3 +1,8 @@
+.headStructure {
+  composes: flex from "../app.css" mb4 from "../app.css";
+  align-items: flex-end;
+}
+
 .heading {
   text-shadow: 0 2px 15px #111;
 }
