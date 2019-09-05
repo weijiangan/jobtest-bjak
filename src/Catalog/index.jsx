@@ -7,31 +7,10 @@ import React, {
 } from "react";
 import { Link } from "react-router-dom";
 import { usePagination } from "../hooks/usePagination";
+import { cache } from "../utils";
 
 import theme from "../app.css";
 import styles from "./styles.css";
-
-function cache(name, fn) {
-  const tmp = localStorage.getItem(name);
-  return new Promise(resolve => {
-    if (tmp === null || typeof tmp === "undefined") {
-      console.log("cache empty, loading fresh data");
-      const retVal = fn();
-      if (retVal instanceof Promise) {
-        retVal.then(retVal2 => {
-          localStorage.setItem(name, JSON.stringify(retVal2));
-          resolve(retVal2);
-        });
-      } else {
-        localStorage.setItem(name, JSON.stringify(retVal));
-        resolve(retVal);
-      }
-    } else {
-      console.log("retrieved from cache");
-      resolve(JSON.parse(tmp));
-    }
-  });
-}
 
 async function loadData() {
   const data = await fetch(
@@ -48,6 +27,7 @@ function Catalog(props) {
 
   useEffect(() => {
     (async function run() {
+      // cache API response during development to prevent spamming the API
       const data = await cache("catalog", loadData);
       setCampaigns(prevState => prevState.concat(data.data));
     })();
