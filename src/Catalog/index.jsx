@@ -57,7 +57,8 @@ function Catalog(props) {
 
   const containerRef = useRef(window.innerWidth);
 
-  const aaa = (window.innerWidth - containerRef.current.offsetWidth) / 2;
+  const computedMargin =
+    (window.innerWidth - containerRef.current.offsetWidth) / 2;
 
   return (
     <>
@@ -86,7 +87,7 @@ function Catalog(props) {
                 <div className={styles.trackWrapper}>
                   <div
                     className={styles.track}
-                    style={{ margin: `0 ${aaa}px` }}
+                    style={{ margin: `0 ${computedMargin}px` }}
                   >
                     {item.data.map(item => (
                       <Poster
@@ -144,14 +145,6 @@ function Poster({ selected, title, handleSelect }) {
         <Link to={`/details/${title.id}`}>{title.title}</Link>
       </div>
     </div>
-  );
-}
-
-function Circle({ color, ...props }) {
-  return (
-    <svg height="1em" width="1em" {...props}>
-      <circle cx="0.5em" cy="0.5em" r="0.4em" fill={color} />
-    </svg>
   );
 }
 

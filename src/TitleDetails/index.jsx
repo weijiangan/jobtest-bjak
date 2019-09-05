@@ -50,7 +50,7 @@ function TitleDetails({ match, ...props }) {
         <p className={styles.description}>{state.description}</p>
         <h2>Casts</h2>
         <p>{joinNames(casts)}</p>
-        <h2>Directors</h2>
+        <h2>Directed by</h2>
         <p>{joinNames(directors)}</p>
       </div>
     </>
