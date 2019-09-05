@@ -6,10 +6,9 @@ import React, {
   useEffect
 } from "react";
 import { Link } from "react-router-dom";
-import { usePagination } from "./usePagination";
-import { dateInRange, parseDate, formatDate } from "./utils";
+import { usePagination } from "../hooks/usePagination";
 
-import styles from "./app.css";
+import styles from "../app.css";
 
 function cache(name, fn) {
   const tmp = localStorage.getItem(name);

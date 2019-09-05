@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "../app.css";
 
 function TitleDetails({ match, ...props }) {
   const [state, setState] = useState({ people: [] });
@@ -16,7 +17,7 @@ function TitleDetails({ match, ...props }) {
   const directors = state.people.filter(item => item.role === "DIRECTOR");
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>{state.title}</h1>
       <p>{state.description}</p>
       <p>Casts: {aaa(casts)}</p>
