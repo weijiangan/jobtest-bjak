@@ -1,0 +1,86 @@
+.topSection {
+  composes: mt6 from "../app.css" container from "../app.css";
+}
+
+.titlesRow:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.reel {
+  overflow-x: auto;
+  overflow-y: visible;
+  width: 100%;
+  padding-top: 1rem;
+  margin-top: -1rem;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.trackWrapper {
+  width: fit-content;
+}
+
+.track {
+  display: flex;
+  width: fit-content;
+}
+
+.reel .track > *:not(:last-child) {
+  padding-right: 1rem;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 0.4rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 3px 5px #151515;
+  transition: transform 0.2s, box-shadow 0.2s;
+  line-height: 0;
+}
+
+.imageWrapper > img {
+  border-radius: 0.4rem;
+  width: 250px;
+  height: auto;
+}
+
+.imageWrapper::before {
+  border-radius: 0.4rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.posterLabel {
+  text-align: center;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.posterActive .imageWrapper {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px 2px #151515;
+}
+
+.posterActive .imageWrapper::before {
+  opacity: 0;
+}
+
+.posterActive .posterLabel {
+  transform: translateY(40%);
+}
+
+.trackWrapper {
+  width: fit-content;
+}
+
+.paginationBar {
+  composes: bar from "../app.css" mt2 from "../app.css";
+  float: right;
+}

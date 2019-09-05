@@ -8,7 +8,8 @@ import React, {
 import { Link } from "react-router-dom";
 import { usePagination } from "../hooks/usePagination";
 
-import styles from "../app.css";
+import theme from "../app.css";
+import styles from "./styles.css";
 
 function cache(name, fn) {
   const tmp = localStorage.getItem(name);
@@ -81,9 +82,9 @@ function Catalog(props) {
   return (
     <>
       <div className={styles.topSection}>
-        <div ref={containerRef} className={styles.spaceBetween}>
+        <div ref={containerRef} className={theme.spaceBetween}>
           <h1>Catalog</h1>
-          <div className={styles.field}>
+          <div className={theme.field}>
             <label>Filter</label>
             <input
               type="text"
@@ -94,11 +95,11 @@ function Catalog(props) {
           </div>
         </div>
       </div>
-      <div className={styles.mt4}>
+      <div className={theme.mt4}>
         {pageItems.map(item => {
           return (
             <div className={styles.titlesRow} key={item.row_id}>
-              <div className={styles.container}>
+              <div className={theme.container}>
                 <h3>{item.row_name}</h3>
               </div>
               <div className={styles.reel}>
@@ -121,7 +122,7 @@ function Catalog(props) {
             </div>
           );
         })}
-        <div className={styles.container}>
+        <div className={theme.container}>
           <div className={styles.paginationBar}>
             <button onClick={() => setPage(p => (p <= 2 ? 1 : p - 1))}>
               Prev
