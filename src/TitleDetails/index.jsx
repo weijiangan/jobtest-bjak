@@ -9,7 +9,6 @@ function TitleDetails({ match, ...props }) {
       const data = await fetch(
         `https://cdn-discover.hooq.tv/v1.2/discover/titles/${match.params.id}`
       ).then(response => response.json());
-      console.log(data);
       setState(data.data);
     })();
   }, []);
