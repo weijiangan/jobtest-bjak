@@ -9,7 +9,7 @@ function usePagination(history, location, size = 10) {
 
   useEffect(() => {
     if (!search.includes(`page=${page}`)) {
-      history.push(`${pathname}?page=${page}`);
+      history.replace(`${pathname}?page=${page}`);
     }
   }, [page]);
 
