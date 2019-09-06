@@ -48,12 +48,14 @@
   box-shadow: 0 3px 5px #151515;
   transition: transform 0.2s, box-shadow 0.2s;
   line-height: 0;
+  width: 250px;
+  height: 375px;
 }
 
 .imageWrapper > img {
   border-radius: 0.4rem;
-  width: 250px;
-  height: auto;
+  width: inherit;
+  height: inherit;
 }
 
 .imageWrapper::before {

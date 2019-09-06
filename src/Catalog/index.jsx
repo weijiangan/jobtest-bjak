@@ -138,7 +138,10 @@ function Poster({ selected, title, handleSelect }) {
     >
       <Link to={`/details/${title.id}`}>
         <div className={styles.imageWrapper}>
-          <img src={title.images.find(item2 => item2.type === "POSTER").url} />
+          <img
+            loading="lazy"
+            src={title.images.find(item2 => item2.type === "POSTER").url}
+          />
         </div>
       </Link>
       <div className={styles.posterLabel}>
