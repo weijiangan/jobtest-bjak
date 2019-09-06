@@ -20,4 +20,9 @@ $ yarn start
 ## Testing
 1. Run `yarn test`
 
+## Things to note
+* I only optimized responsiveness to 600px minimum since nothing is mentioned in requirements
+
+If you wish to see something and it's not there please let me know. It's probably ommitted unintentionally
+
 Contact me at weijiangan@outlook.com if you have any questions
