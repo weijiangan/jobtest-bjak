@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import querystring from "querystring";
+
+const PAGE_PARAM_REGEX = /page=(?<page>\d+)/;
 
 function usePagination(history, location, size = 10) {
   const { pathname, search } = location;
@@ -8,10 +10,13 @@ function usePagination(history, location, size = 10) {
   const [page, setPage] = useState(initPage > 0 ? initPage : 1);
 
   useEffect(() => {
-    if (!search.includes(`page=${page}`)) {
+    const found = search.match(PAGE_PARAM_REGEX);
+    if (found && found.groups.page !== page) {
+      setPage(parseInt(found.groups.page, 10));
+    } else {
       history.replace(`${pathname}?page=${page}`);
     }
-  }, [page]);
+  }, [search]); // only run when location changes
 
   const paginator = useCallback(
     arr => {
@@ -25,7 +30,19 @@ function usePagination(history, location, size = 10) {
     [page]
   );
 
-  return [page, setPage, paginator];
+  const setPageAndPushHistory = useCallback(
+    arg => {
+      setPage(arg);
+      let newPage = arg;
+      if (typeof arg === "function") {
+        newPage = arg(page);
+      }
+      history.push(`${pathname}?page=${newPage}`);
+    },
+    [page]
+  );
+
+  return [page, setPageAndPushHistory, paginator];
 }
 
 export { usePagination };
