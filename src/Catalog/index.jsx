@@ -19,11 +19,11 @@ async function loadData() {
   return Promise.resolve(data);
 }
 
-function Catalog(props) {
+function Catalog({ history, location, ...props }) {
   const [campaigns, setCampaigns] = useState([]);
   const [selected, setSelected] = useState(null);
   const [filter, setFilter] = useState("");
-  const [page, setPage, paginator] = usePagination();
+  const [page, setPage, paginator] = usePagination(history, location);
 
   useEffect(() => {
     (async function run() {
