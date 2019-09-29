@@ -1,6 +1,8 @@
-# jobtest-bjak
+# Movie catalog UI
+Link to demo: https://fervent-liskov-2031c9.netlify.com
 
-Demo: https://fervent-liskov-2031c9.netlify.com
+This is a take-home assignment I worked on for a front end developer job interview at https://bjak.my. I was specifically requested to use HOOQ.tv's API which came in the form of the following sample snippet:
+`https://cdn-discover.hooq.tv/v1.2/discover/feed?region=ID&page=1&perPage=20`
 
 ## Running
 1. Refer to building instructions first
@@ -10,19 +12,21 @@ $ yarn start
 ```
 
 ## Building
-1. Run `yarn`
-2. Run `yarn build`
+```sh
+$ yarn
+$ yarn build
+```
 
 ## Development
-1. Run `yarn`
-2. Run `yarn run start:dev`
+```sh
+$ yarn
+$ yarn run start:dev
+```
 
 ## Testing
-1. Run `yarn test`
+```sh
+$ yarn test
+```
 
 ## Things to note
 * I only optimized responsiveness to 600px minimum since nothing is mentioned in requirements
-
-If you wish to see something and it's not there please let me know. It's probably ommitted unintentionally
-
-Contact me at weijiangan@outlook.com if you have any questions
