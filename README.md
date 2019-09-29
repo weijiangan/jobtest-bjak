@@ -4,6 +4,8 @@ Link to demo: https://fervent-liskov-2031c9.netlify.com
 This is a take-home assignment I worked on for a front end developer job interview at https://bjak.my. I was specifically requested to use HOOQ.tv's API which came in the form of the following sample snippet:
 `https://cdn-discover.hooq.tv/v1.2/discover/feed?region=ID&page=1&perPage=20`
 
+This assignment is mainly written in React 16.9 with React Hooks without any state management library.
+
 ## Running
 1. Refer to building instructions first
 2. Run the following and you are ready to go
